@@ -24,7 +24,7 @@
                         header("Location:".Connect::route()."view/home");
                         exit();
                     } else {
-                        header("Location:".Connect::route()."index.php?m=2");
+                        header("Location:".Connect::route()."index.php?m=1");
                         exit();
                     }
                     
