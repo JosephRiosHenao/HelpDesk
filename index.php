@@ -1,6 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+	require_once("config\conexion.php");
+	if (isset($_POST["send"]) and $_POST["send"]=="yes") {
+		require_once("models\user.php");
+		$user = new User();
+		$user->login();
+	}
+?>
 
+<!DOCTYPE html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,20 +23,19 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="public/css/adminlte.min.css">
 </head>
-
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<!-- /.login-logo -->
 		<div class="card card-outline card-primary">
 			<div class="card-header text-center">
-				<a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+				<div class="h1"><b>Acceso</b> Usuario</div>
 			</div>
 			<div class="card-body">
-				<p class="login-box-msg">Sign in to start your session</p>
+				<p class="login-box-msg">Inicia sesion</p>
 
-				<form action="../../index3.html" method="post">
+				<form action="" method="post" id="login_form">
 					<div class="input-group mb-3">
-						<input type="email" class="form-control" placeholder="Email">
+						<input type="email" id="user_email" name="user_email" class="form-control" placeholder="Correo">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-envelope"></span>
@@ -36,45 +43,28 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" class="form-control" placeholder="Password">
+						<input type="password" id="user_pass" name="user_pass"class="form-control" placeholder="Contraseña">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
 							</div>
 						</div>
 					</div>
+					<input type="hidden" id="send" name="send" value="yes">
 					<div class="row">
-						<div class="col-8">
-							<div class="icheck-primary">
-								<input type="checkbox" id="remember">
-								<label for="remember">
-									Remember Me
-								</label>
-							</div>
-						</div>
 						<!-- /.col -->
-						<div class="col-4">
-							<button type="submit" class="btn btn-primary btn-block">Sign In</button>
+						<div class="col">
+							<button type="submit" class="btn btn-primary btn-block">Continuar</button>
 						</div>
 						<!-- /.col -->
 					</div>
 				</form>
-
-				<div class="social-auth-links text-center mt-2 mb-3">
-					<a href="#" class="btn btn-block btn-primary">
-						<i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-					</a>
-					<a href="#" class="btn btn-block btn-danger">
-						<i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-					</a>
-				</div>
 				<!-- /.social-auth-links -->
-
 				<p class="mb-1">
-					<a href="forgot-password.html">I forgot my password</a>
+					<a href="forgot-password.html">Olvide mi contraseña</a>
 				</p>
 				<p class="mb-0">
-					<a href="register.html" class="text-center">Register a new membership</a>
+					<a href="register.html" class="text-center">Crear cuenta</a>
 				</p>
 			</div>
 			<!-- /.card-body -->
@@ -90,5 +80,4 @@
 	<!-- AdminLTE App -->
 	<script src="public/js/adminlte.min.js"></script>
 </body>
-
 </html>

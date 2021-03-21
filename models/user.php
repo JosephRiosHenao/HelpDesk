@@ -4,7 +4,7 @@
         public function login(){
             $signin=parent::Conexion();
             parent::setNames();
-            if (isset($_POST["enviar"])) {
+            if (isset($_POST["send"])) {
                 $email = $_POST["user_email"];
                 $pass  = $_POST["user_pass"];
                 if (empty($email) and empty($pass)) {
